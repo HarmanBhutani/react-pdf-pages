@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import PDF, { Page } from '../src/index';
 import styled from 'styled-components';
+import {Modal} from 'react-bootstrap';
 
 const Container = styled.div`
   text-align: center;
@@ -52,11 +53,19 @@ export default class PDFTest extends Component {
   render() {
     return (
       <Container>
-        <Title>React PDF Pages</Title>
+        <Title></Title>
         <form onSubmit={(e) => { e.preventDefault(); this.setState({ url: this.refs.url.value })}}>
           <input type="text" ref="url" defaultValue={this.state.url} />
           <input type="submit" value="Update URL" />
         </form>
+
+        <Modal.Dialog>
+  <Modal.Header closeButton>
+    <Modal.Title>Modal title</Modal.Title>
+  </Modal.Header>
+
+  <Modal.Body>
+
         <PDF url={this.state.url}
              onProgress={({ loaded, total }) => this.setState({ loaded, total })}
              onComplete={(pages) => this.setState({ error: null, pages })}
@@ -76,6 +85,13 @@ export default class PDFTest extends Component {
               : <Loading>Loading {this.state.loaded} / {this.state.total}</Loading>
           }
         </PDF>
+        </Modal.Body>
+
+        <Modal.Footer>
+    <Button variant="secondary">Close</Button>
+    <Button variant="primary">Save changes</Button>
+  </Modal.Footer>
+</Modal.Dialog>
       </Container>
     );
   }

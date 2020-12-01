@@ -16,7 +16,9 @@
   },
   "author": "Graham Kaemmer",
   "license": "MIT",
-  "dependencies": {},
+  "dependencies": {
+    "react-bootstrap": "^1.4.0"
+  },
   "devDependencies": {
     "babel-cli": "^6.18.0",
     "babel-core": "^6.20.0",
