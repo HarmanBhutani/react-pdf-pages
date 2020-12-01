@@ -41,7 +41,7 @@ export default class PDFTest extends Component {
     super(props);
 
     this.state = {
-      url: '/example.pdf',
+      url: '/harman.pdf',
       pages: null,
       loaded: 0,
       total: 0,
