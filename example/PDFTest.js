@@ -3,6 +3,7 @@ import PDF, { Page } from '../src/index';
 import styled from 'styled-components';
 import {Modal} from 'react-bootstrap';
 
+
 const Container = styled.div`
   text-align: center;
   padding: 20px;
@@ -53,14 +54,14 @@ export default class PDFTest extends Component {
   render() {
     return (
       <Container>
-        <Title></Title>
+        
         <form onSubmit={(e) => { e.preventDefault(); this.setState({ url: this.refs.url.value })}}>
           <input type="text" ref="url" defaultValue={this.state.url} />
           <input type="submit" value="Update URL" />
         </form>
 
-        <Modal.Dialog>
-  <Modal.Header closeButton>
+        <Modal>
+  <Modal.Header>
     <Modal.Title>Modal title</Modal.Title>
   </Modal.Header>
 
@@ -91,7 +92,7 @@ export default class PDFTest extends Component {
     <Button variant="secondary">Close</Button>
     <Button variant="primary">Save changes</Button>
   </Modal.Footer>
-</Modal.Dialog>
+</Modal>
       </Container>
     );
   }
